@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0907">
+    <title>Визитка — Фарход Худайбердиев</title>
+    <style>
+        :root {
+            --bg-1: #070605;
+            --bg-2: #16110d;
+            --surface-border: rgba(201, 164, 106, 0.28);
+            --text-main: #f3ead8;
+            --text-muted: #b8aa94;
+            --accent: #c9a46a;
+            --accent-2: #e3c48a;
+            --shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            min-height: 100dvh;
+            font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            background:
+                radial-gradient(circle at 12% 8%, rgba(201, 164, 106, 0.16) 0%, transparent 42%),
+                radial-gradient(circle at 88% 86%, rgba(92, 58, 28, 0.28) 0%, transparent 46%),
+                linear-gradient(160deg, var(--bg-1) 0%, var(--bg-2) 100%);
+            padding: 30px 40px 40px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        @media (max-width: 767px) {
+            body {
+                align-items: flex-end;
+                padding: 10px;
+            }
+        }
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: -1;
+            opacity: 0.55;
+            pointer-events: none;
+        }
+
+        body::before {
+            background: #c9a46a;
+            top: -80px;
+            left: -70px;
+            opacity: 0.18;
+            animation: floatB 13s ease-in-out infinite alternate;
+        }
+
+        body::after {
+            background: #3a2414;
+            right: -90px;
+            bottom: -70px;
+            opacity: 0.4;
+            animation: floatB 15s ease-in-out infinite alternate;
+        }
+        .card {
+            width: min(100%, 1400px);
+            margin: 0 auto;
+            border-radius: 28px;
+            overflow: hidden;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            background: linear-gradient(160deg, rgba(28, 22, 16, 0.92), rgba(10, 8, 7, 0.96));
+            border: 1px solid var(--surface-border);
+            box-shadow: var(--shadow);
+            position: relative;
+            animation: cardIn 0.7s cubic-bezier(0.2, 0.8, 0.25, 1) both;
+        }
+
+        @media (max-width: 767px) {
+            .card {
+                width: 100%;
+                max-width: 360px;
+                margin: 0 auto 16px;
+                border-radius: 18px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card {
+                width: 100%;
+                max-width: 1240px;
+                margin: 0 auto;
+                border-radius: 32px;
+            }
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 28px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(227, 196, 138, 0.55), rgba(201, 164, 106, 0.12), rgba(92, 64, 32, 0.2));
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            position: relative;
+            padding: 24px;
+            background:
+                linear-gradient(130deg, rgba(201, 164, 106, 0.18) 0%, rgba(42, 28, 16, 0.55) 48%, rgba(8, 7, 6, 0.2) 100%),
+                rgba(12, 10, 8, 0.72);
+        }
+
+        .hero-appointment {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            width: fit-content;
+            margin-top: 12px;
+            padding: 13px 19px;
+            border: 1px solid rgba(255, 231, 185, 0.55);
+            border-radius: 13px;
+            color: #1a140f;
+            background: linear-gradient(135deg, #f0d8a7, #c9a46a);
+            box-shadow: 0 10px 26px rgba(176, 138, 74, 0.24);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 750;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+        }
+        .hero-appointment:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(176, 138, 74, 0.34);
+            filter: brightness(1.06);
+        }
+        .hero-appointment:active { transform: translateY(0) scale(0.98); }
+
+        @media (max-width: 767px) {
+            .hero {
+                padding: 18px 14px 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                grid-template-columns: 420px 1fr;
+                padding: 32px;
+                align-items: center;
+            }
+
+        }
+
+        .hero::after {
+            content: "ABC";
+            position: absolute;
+            right: 24px;
+            top: 24px;
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            color: rgba(201, 164, 106, 0.12);
+            pointer-events: none;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #e8dcc4;
+            letter-spacing: 0.02em;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(201, 164, 106, 0.1);
+            border: 1px solid rgba(201, 164, 106, 0.32);
+        }
+
+        .status-wrap {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 8px;
+            position: relative;
+        }
+
+        .status-pill {
+            flex-shrink: 0;
+        }
+
+        .brand-badge {
+        
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 6px 10px;
+            border-radius: 999px;
+            color: #fff6dc;
+            border: 1px solid rgba(255, 222, 147, 0.35);
+            background: linear-gradient(135deg, rgba(255, 217, 128, 0.26), rgba(255, 168, 77, 0.17));
+            box-shadow: 0 6px 14px rgba(255, 187, 0, 0.15);
+            white-space: nowrap;
+        }
+
+        
+        @media (min-width: 1024px) {
+            .hero {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 40px 32px;
+                gap: 20px;
+            }
+
+            .status-wrap {
+                order: 1;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                position: relative;
+            }
+
+            .status-pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .brand-badge {
+                position: static;
+                right: auto;
+                top: auto;
+                transform: none;
+            }
+
+            .avatar {
+                order: 2;
+                position: static;
+                left: auto;
+                top: auto;
+                transform: none;
+                margin: 0 auto;
+            }
+
+            .profile {
+                order: 3;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                gap: 12px;
+                margin-top: 0;
+            }
+
+            .profile > div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .name {
+                font-size: 2.2rem;
+                margin-bottom: 8px;
+            }
+
+            .role, .brand-name, .meta-row {
+                margin: 4px 0;
+            }
+
+            .meta-row {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .hero {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 24px;
+                gap: 20px;
+            }
+
+            .status-wrap {
+                order: -1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+                width: 100%;
+                position: relative;
+            }
+
+            .status-pill {
+                flex-shrink: 0;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .brand-badge {
+                position: static;
+
+                right: auto;
+                top: auto;
+                transform: none;
+                
+                display: inline-flex;
+            }
+
+            .profile {
+                order: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-top: 0;
+                gap: 12px;
+            }
+
+            .avatar {
+                position: static;
+                left: auto;
+                top: auto;
+                transform: none;
+                margin: 0;
+            }
+
+            .profile > div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                order: 1;
+            }
+
+            .name {
+                font-size: 1.5rem;
+                margin-bottom: 8px;
+            }
+
+            .role, .brand-name, .meta-row {
+                margin: 4px 0;
+            }
+
+            .meta-row {
+                justify-content: center;
+            }
+        }
+
+        .status-pill::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #34d399;
+            box-shadow: 0 0 0 6px rgba(52, 211, 153, 0.16);
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        @media (max-width: 767px) {
+            .profile {
+                gap: 10px;
+                margin-top: 8px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .profile {
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile {
+                gap: 12px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .profile {
+                gap: 18px;
+            }
+        }
+
+        .avatar {
+            width: 132px;
+            height: 132px;
+            border-radius: 50%;
+            border: 3px solid rgba(227, 196, 138, 0.85);
+            box-shadow:
+                0 0 0 7px rgba(201, 164, 106, 0.16),
+                0 18px 40px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            flex-shrink: 0;
+            background: #1a140f;
+        }
+
+        @media (max-width: 767px) {
+            .avatar {
+                width: 118px;
+                height: 118px;
+                border-width: 2.5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .avatar {
+                width: 108px;
+                height: 108px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .avatar {
+                width: 160px;
+                height: 160px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .avatar {
+                width: 184px;
+                height: 184px;
+            }
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 18%;
+            transform: scale(1.08);
+        }
+
+        .name {
+            margin: 0;
+            max-width: 760px;
+            font-size: clamp(1.8rem, 3.2vw, 3rem);
+            line-height: 1.08;
+            font-weight: 780;
+            letter-spacing: -0.035em;
+        }
+
+        @media (max-width: 767px) {
+            .name {
+                font-size: clamp(1.55rem, 7vw, 2rem);
+                line-height: 1.12;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .name {
+                font-size: clamp(1.6rem, 2.2vw, 1.9rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .name {
+                font-size: clamp(1.45rem, 7.2vw, 1.8rem);
+            }
+        }
+
+        .role {
+            margin: 6px 0 0;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        @media (max-width: 767px) {
+            .role {
+                font-size: 11px;
+                margin: 2px 0 0;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .role {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .role {
+                font-size: 13px;
+            }
+        }
+
+        .brand-name {
+            margin: 8px 0 0;
+            font-size: 13px;
+            color: var(--accent-2);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-weight: 650;
+        }
+
+        .meta-row {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .meta-chip {
+            font-size: 12px;
+            color: #e8dcc4;
+            background: rgba(201, 164, 106, 0.1);
+            border: 1px solid rgba(201, 164, 106, 0.28);
+            border-radius: 999px;
+            padding: 6px 10px;
+        }
+
+        @media (max-width: 767px) {
+            .meta-chip {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+        }
+
+        .content {
+            padding: 18px 24px 24px;
+        }
+
+        @media (max-width: 767px) {
+            .content {
+                padding: 10px 12px 14px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .content {
+                padding: 24px 28px 32px;
+            }
+        }
+
+        .highlight-panel {
+            margin-bottom: 14px;
+            border-radius: 14px;
+            padding: 12px 13px;
+            background: linear-gradient(125deg, rgba(201, 164, 106, 0.16), rgba(92, 58, 28, 0.18), rgba(255, 255, 255, 0.03));
+            border: 1px solid rgba(201, 164, 106, 0.32);
+            color: #e8dcc4;
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .highlight-panel strong {
+            color: #ffffff;
+        }
+
+        .company-panel {
+            margin: 4px 0 18px;
+            border-radius: 14px;
+            padding: 14px 15px;
+            background: linear-gradient(135deg, rgba(201, 164, 106, 0.12), rgba(42, 28, 16, 0.35), rgba(255, 255, 255, 0.03));
+            border: 1px solid rgba(201, 164, 106, 0.28);
+        }
+
+        .company-panel p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        .fabric-content {
+            padding: 13px 15px 15px;
+            border-top: 1px solid rgba(201, 164, 106, 0.18);
+        }
+        .fabric-content p {
+            margin: 0 0 10px;
+            color: var(--text-muted);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        .fabric-brands { display: flex; flex-wrap: wrap; gap: 7px; }
+        .fabric-brands span {
+            padding: 6px 9px;
+            border: 1px solid rgba(201, 164, 106, 0.24);
+            border-radius: 999px;
+            color: var(--text-main);
+            background: rgba(201, 164, 106, 0.08);
+            font-size: 11px;
+        }
+
+        .company-panel strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        .map-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 12px 0 18px;
+            padding: 13px 15px;
+            border: 1px solid rgba(201, 164, 106, 0.32);
+            border-radius: 14px;
+            color: var(--text-main);
+            text-decoration: none;
+            background: linear-gradient(110deg, rgba(201, 164, 106, 0.1), rgba(201, 164, 106, 0.025));
+            transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+        }
+        .map-link:hover { transform: translateY(-2px); border-color: rgba(227, 196, 138, 0.62); background: rgba(201, 164, 106, 0.12); }
+        .map-icon {
+            display: grid;
+            place-items: center;
+            width: 42px;
+            height: 42px;
+            flex: 0 0 42px;
+            border-radius: 12px;
+            background: rgba(201, 164, 106, 0.16);
+            font-size: 19px;
+        }
+        .map-copy { display: flex; flex: 1; flex-direction: column; gap: 3px; }
+        .map-title { font-size: 13px; font-weight: 700; }
+        .map-subtitle { color: var(--text-muted); font-size: 11px; }
+        .map-arrow { color: var(--accent-2); font-size: 18px; }
+
+        .portfolio-section { margin: 20px 0 22px; }
+        .portfolio-heading { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+        .portfolio-heading .section-title { margin: 0; }
+        .portfolio-note { margin: 0; color: var(--text-muted); font-size: 11px; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+        .portfolio-item {
+            position: relative;
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            padding: 0;
+            border: 1px solid rgba(201, 164, 106, 0.3);
+            border-radius: 14px;
+            background: #17110d;
+            cursor: zoom-in;
+            text-align: left;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .portfolio-item:hover { transform: translateY(-3px); border-color: rgba(227, 196, 138, 0.72); box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28); }
+        .portfolio-item img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.45s ease; }
+        .portfolio-item:hover img { transform: scale(1.045); }
+        .portfolio-caption {
+            position: absolute;
+            inset: auto 0 0;
+            padding: 28px 10px 10px;
+            color: #fff8eb;
+            font-size: 12px;
+            font-weight: 650;
+            background: linear-gradient(transparent, rgba(8, 6, 5, 0.88));
+        }
+        @media (max-width: 767px) {
+            .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+            .portfolio-item { border-radius: 12px; }
+            .portfolio-caption { font-size: 11px; padding: 24px 8px 8px; }
+            .portfolio-note { display: none; }
+            .hero-appointment { width: 100%; }
+        }
+
+        .gallery-modal {
+            width: min(94vw, 980px);
+            max-width: none;
+            max-height: 92dvh;
+            padding: 14px;
+            border: 1px solid rgba(227, 196, 138, 0.42);
+            border-radius: 18px;
+            color: var(--text-main);
+            background: #100d0a;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
+        }
+        .gallery-modal::backdrop { background: rgba(0, 0, 0, 0.84); backdrop-filter: blur(7px); }
+        .gallery-modal figure { margin: 0; }
+        .gallery-modal img { display: block; width: 100%; max-height: 78dvh; object-fit: contain; border-radius: 10px; }
+        .gallery-modal figcaption { padding: 11px 2px 2px; color: var(--text-muted); font-size: 13px; }
+        .gallery-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 50%;
+            color: white;
+            background: rgba(0, 0, 0, 0.58);
+            font-size: 23px;
+            cursor: pointer;
+        }
+
+        .content > * { animation: contentIn 0.45s both; }
+        .content > *:nth-child(2n) { animation-delay: 45ms; }
+        @keyframes contentIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+        .expand-panel {
+            margin: 12px 0;
+            border: 1px solid rgba(201, 164, 106, 0.3);
+            border-radius: 14px;
+            overflow: hidden;
+            background: rgba(201, 164, 106, 0.05);
+        }
+
+        .expand-panel summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 15px;
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            list-style: none;
+        }
+
+        .expand-panel summary::-webkit-details-marker { display: none; }
+        .expand-panel summary::after {
+            content: "+";
+            color: var(--accent-2);
+            font-size: 20px;
+            line-height: 1;
+        }
+        .expand-panel[open] summary::after { content: "−"; }
+
+        .achievement-list { padding: 0 12px 12px; border-top: 1px solid rgba(201, 164, 106, 0.18); }
+        .achievement-item {
+            margin-top: 9px;
+            overflow: hidden;
+            border: 1px solid rgba(201, 164, 106, 0.2);
+            border-radius: 11px;
+            background: rgba(0, 0, 0, 0.16);
+        }
+        .achievement-item > summary {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            padding: 11px 12px;
+            cursor: pointer;
+            color: var(--text-main);
+            font-size: 13px;
+            font-weight: 600;
+            list-style: none;
+        }
+        .achievement-item > summary span:nth-child(2) { min-width: 0; flex: 1; }
+        .achievement-item > summary::-webkit-details-marker { display: none; }
+        .achievement-item > summary::after { content: "+"; margin-left: auto; color: var(--accent-2); font-size: 18px; }
+        .achievement-item[open] > summary::after { content: "−"; }
+        .achievement-icon { color: var(--accent-2); }
+        .achievement-type { flex-shrink: 0; color: var(--text-muted); font-size: 10px; font-weight: 500; white-space: nowrap; }
+        .achievement-preview { padding: 0 10px 10px; }
+        .achievement-preview iframe {
+            display: block;
+            width: 100%;
+            height: min(68vh, 620px);
+            min-height: 380px;
+            border: 1px solid rgba(201, 164, 106, 0.2);
+            border-radius: 8px;
+            background: #fff;
+        }
+        .achievement-open {
+            display: inline-block;
+            margin-top: 9px;
+            color: var(--accent-2);
+            font-size: 12px;
+            text-decoration: none;
+        }
+        .achievement-open:hover { text-decoration: underline; }
+        @media (max-width: 767px) {
+            .achievement-preview iframe { height: 62vh; min-height: 320px; }
+        }
+
+        .schedule-rows {
+            padding: 0 15px 8px;
+            border-top: 1px solid rgba(201, 164, 106, 0.18);
+        }
+
+        .schedule-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 0;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+        .schedule-row + .schedule-row { border-top: 1px solid rgba(201, 164, 106, 0.1); }
+        .schedule-row strong { color: var(--text-main); font-weight: 600; }
+
+        .share-content {
+            display: grid;
+            justify-items: center;
+            gap: 12px;
+            padding: 14px 16px 16px;
+            border-top: 1px solid rgba(201, 164, 106, 0.18);
+            text-align: center;
+        }
+        .share-content img {
+            display: block;
+            width: min(100%, 240px);
+            border-radius: 12px;
+            background: #fff;
+        }
+        .share-caption { margin: 0; color: var(--text-muted); font-size: 12px; }
+        .share-actions { display: flex; width: 100%; gap: 8px; }
+        .share-action {
+            flex: 1;
+            min-height: 42px;
+            border: 1px solid rgba(201, 164, 106, 0.45);
+            border-radius: 11px;
+            background: rgba(201, 164, 106, 0.1);
+            color: var(--text-main);
+            font: inherit;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .share-action.primary { background: linear-gradient(135deg, #e3c48a, #c9a46a); color: #1a140f; border: 0; font-weight: 700; }
+        .share-status { min-height: 16px; color: var(--accent-2); font-size: 12px; }
+
+        .section-title {
+            margin: 4px 0 10px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #c9a46a;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 767px) {
+            .section-title {
+                font-size: 11px;
+                margin: 8px 0 6px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 13px;
+                margin-top: 12px;
+                margin-bottom: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 11px;
+                margin-top: 8px;
+                margin-bottom: 8px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 13px;
+                margin-top: 12px;
+                margin-bottom: 12px;
+            }
+        }
+
+        .save-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            margin: 2px 0 16px;
+            text-decoration: none;
+            color: #1a140f;
+            border-radius: 14px;
+            min-height: 50px;
+            padding: 14px 16px;
+            font-weight: 650;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #e3c48a 0%, var(--accent) 52%, #b08a4a 100%);
+            box-shadow: 0 12px 28px rgba(176, 138, 74, 0.28);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            font-size: 15px;
+        }
+
+        @media (max-width: 767px) {
+            .save-btn {
+                min-height: 40px;
+                font-size: 13px;
+                padding: 10px 12px;
+                margin: 0 0 12px;
+                border-radius: 12px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .save-btn {
+                min-height: 54px;
+                font-size: 15px;
+                padding: 16px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .save-btn {
+                min-height: 44px;
+                font-size: 14px;
+                padding: 12px 14px;
+            }
+        }
+
+        .save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(176, 138, 74, 0.38);
+            filter: saturate(1.08);
+        }
+
+        .save-btn::before {
+            content: "";
+            position: absolute;
+            top: -120%;
+            left: -45%;
+            width: 40%;
+            height: 320%;
+            transform: rotate(25deg);
+            background: rgba(255, 255, 255, 0.45);
+            filter: blur(8px);
+            transition: left 0.55s ease;
+        }
+
+        .save-btn:hover::before {
+            left: 125%;
+        }
+
+        .call-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            min-height: 50px;
+            padding: 14px 16px;
+            margin: 0 0 14px;
+            text-decoration: none;
+            color: var(--text-main);
+            border-radius: 14px;
+            font-weight: 650;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border: 1px solid rgba(201, 164, 106, 0.55);
+            background: transparent;
+            transition: transform 0.22s ease, background-color 0.22s ease, border-color 0.22s ease;
+            font-size: 15px;
+        }
+
+        @media (max-width: 767px) {
+            .call-btn {
+                min-height: 40px;
+                font-size: 13px;
+                padding: 10px 12px;
+                margin: 0 0 10px;
+                border-radius: 12px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .call-btn {
+                min-height: 54px;
+                font-size: 15px;
+                padding: 16px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .call-btn {
+                min-height: 44px;
+                font-size: 14px;
+                padding: 12px 14px;
+            }
+        }
+
+        .call-btn:hover {
+            transform: translateY(-2px);
+            background: rgba(201, 164, 106, 0.12);
+            border-color: rgba(227, 196, 138, 0.7);
+        }
+
+        .contact-hint {
+            margin: -8px 0 14px;
+            font-size: 12px;
+            color: #b8aa94;
+            line-height: 1.35;
+            min-height: 16px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        @media (max-width: 767px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        .grid-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #f3ead8;
+            border-radius: 15px;
+            border: 1px solid rgba(201, 164, 106, 0.34);
+            background: linear-gradient(110deg, rgba(201, 164, 106, 0.12), rgba(201, 164, 106, 0.035) 72%);
+            min-height: 76px;
+            padding: 12px 14px;
+            transition: transform 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+        }
+
+        @media (max-width: 767px) {
+            .grid-item {
+                min-height: 60px;
+                padding: 10px 10px;
+                border-radius: 12px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .grid-item {
+                min-height: 88px;
+            }
+        }
+
+        .grid-item:hover {
+            transform: translateY(-2px);
+            background: rgba(201, 164, 106, 0.12);
+            border-color: rgba(201, 164, 106, 0.45);
+        }
+
+        .grid-label {
+            display: grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            flex: 0 0 44px;
+            border: 1px solid rgba(227, 196, 138, 0.28);
+            border-radius: 13px;
+            background: linear-gradient(145deg, rgba(227, 196, 138, 0.2), rgba(201, 164, 106, 0.08));
+            font-size: 21px;
+        }
+
+        .grid-text {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 14px;
+            color: #f3ead8;
+            font-weight: 650;
+        }
+
+        .grid-subtext {
+            color: #b8aa94;
+            font-size: 12px;
+            font-weight: 450;
+            letter-spacing: 0.02em;
+        }
+
+        .mobile-action {
+            color: var(--accent-2);
+            font-size: 12px;
+            font-weight: 650;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            .grid-item { min-height: 68px; padding: 10px 11px; gap: 10px; }
+            .grid-label { width: 40px; height: 40px; flex-basis: 40px; }
+            .grid-text { font-size: 13px; }
+            .grid-subtext { font-size: 11px; }
+            .mobile-action { font-size: 11px; }
+        }
+
+        .links {
+            display: grid;
+            gap: 10px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: #f3ead8;
+            border-radius: 14px;
+            border: 1px solid rgba(201, 164, 106, 0.2);
+            background: rgba(201, 164, 106, 0.05);
+            min-height: 58px;
+            padding: 12px 14px;
+            font-weight: 520;
+            transition: transform 0.22s ease, background-color 0.22s ease, border-color 0.22s ease;
+        }
+
+        @media (max-width: 767px) {
+            .social-link {
+                min-height: 50px;
+                padding: 10px 12px;
+                border-radius: 12px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .social-link {
+                min-height: 62px;
+                padding: 14px 16px;
+            }
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+            border-color: rgba(201, 164, 106, 0.48);
+        }
+
+        .social-left {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 9px;
+            background: rgba(201, 164, 106, 0.14);
+            flex-shrink: 0;
+        }
+
+        .social-icon.site-logo {
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            overflow: hidden;
+            background: #050403;
+            border: 1px solid rgba(201, 164, 106, 0.38);
+        }
+
+        .social-icon.site-logo img {
+            width: 240%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 8% 50%;
+            display: block;
+        }
+
+        .site-link {
+            border-color: rgba(201, 164, 106, 0.38);
+            background: linear-gradient(120deg, rgba(201, 164, 106, 0.1), rgba(12, 10, 8, 0.4));
+        }
+
+        .site-link:hover {
+            background: rgba(201, 164, 106, 0.14);
+        }
+
+        .social-text {
+            display: inline-flex;
+            flex-direction: column;
+            line-height: 1.2;
+            gap: 3px;
+        }
+
+        .social-title {
+            font-size: 14px;
+        }
+
+        @media (max-width: 767px) {
+            .social-title {
+                font-size: 12px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .social-title {
+                font-size: 15px;
+            }
+        }
+
+        .social-subtitle {
+            font-size: 11px;
+            color: #b8aa94;
+        }
+
+        .tg:hover,
+        .wa:hover,
+        .insta:hover {
+            background: rgba(201, 164, 106, 0.12);
+        }
+
+        .arrow {
+            color: #c9a46a;
+            font-size: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        .social-link:hover .arrow {
+            transform: translateX(3px);
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+            .card {
+                background: #120f0c;
+            }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .save-btn:hover,
+            .grid-item:hover,
+            .social-link:hover,
+            .social-link:hover .arrow {
+                transform: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        @media (max-width: 720px) {
+            body {
+                padding: 16px;
+            }
+        }
+
+        @keyframes cardIn {
+            from {
+                opacity: 0;
+                transform: translateY(22px) scale(0.97);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes floatB {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(-50px, -30px);
+            }
+        }
+
+        @media (max-height: 620px) and (orientation: landscape) {
+            body {
+                padding: 10px;
+            }
+
+            .hero {
+                padding-top: 16px;
+                padding-bottom: 12px;
+            }
+
+            .content {
+                padding-top: 12px;
+                padding-bottom: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="hero">
+        <div class="status-wrap">
+            <span class="status-pill">Онлайн • Быстрый ответ</span>
+            <span class="brand-badge">ABC</span>
+        </div>
+        <div class="profile">
+            <div class="avatar">
+                <img src="./IMG_3339.jpg" alt="Худайбердиев Фарход Абдуллажанович">
+            </div>
+            <div>
+                <h1 class="name">Худайбердиев Фарход Абдуллажанович</h1>
+                <p class="role">Мастер индивидуального пошива</p>
+                <p class="brand-name">Academy Bespoke Costumes</p>
+                <div class="meta-row">
+                    <span class="meta-chip">📍 Ташкент</span>
+                    <span class="meta-chip">⚡ Запись на примерку</span>
+                </div>
+                <a class="hero-appointment" href="https://t.me/farhodabdulla?text=Здравствуйте%2C%20хочу%20записаться%20на%20примерку" target="_blank" rel="noopener">
+                    Записаться на примерку <span aria-hidden="true">↗</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <a href="./Farhod.vcf" class="save-btn" id="saveContactBtn">Сохранить в контакты</a>
+        <a href="tel:+998990025645" class="call-btn">Позвонить сейчас</a>
+        <p class="contact-hint" id="contactHint"></p>
+        <div class="highlight-panel">
+            <strong>Личный контакт мастера</strong><br>
+            Каждая деталь создаётся вручную. Если вопрос важный — отвечаю лично.
+        </div>
+
+        <p class="section-title">О компании</p>
+        <div class="company-panel">
+            <strong>Academy Bespoke Costumes</strong>
+            <p>Ателье индивидуального пошива и ремонта одежды в Ташкенте. Итальянские ткани и фурнитура. Эксклюзивное качество и посадка.</p>
+        </div>
+
+        <a class="map-link" href="https://maps.app.goo.gl/gRJ8x5GYKTe2zJkBA" target="_blank" rel="noopener">
+            <span class="map-icon" aria-hidden="true">📍</span>
+            <span class="map-copy">
+                <span class="map-title">Как добраться до ателье</span>
+                <span class="map-subtitle">Открыть адрес и построить маршрут</span>
+            </span>
+            <span class="map-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <details class="expand-panel">
+            <summary>Ткани и материалы</summary>
+            <div class="fabric-content">
+                <p>Для пошива используем ткани фабрик:</p>
+                <div class="fabric-brands">
+                    <span>Loro Piana</span>
+                    <span>Ermenegildo Zegna</span>
+                    <span>Scabal</span>
+                    <span>Lanificio</span>
+                    <span>Drapers</span>
+                    <span>Piacenza 1733</span>
+                    <span>Holland &amp; Sherry</span>
+                </div>
+            </div>
+        </details>
+
+        <details class="expand-panel portfolio-expand">
+            <summary>Работы ателье</summary>
+            <section class="portfolio-section" aria-label="Фотографии работ ателье">
+                <div class="portfolio-heading">
+                    <p class="portfolio-note">Нажмите на фото, чтобы открыть его отдельно</p>
+                </div>
+                <div class="portfolio-grid">
+                    <button class="portfolio-item" type="button" data-full="./Двухбортный%20костюм.jpg" data-caption="Двубортный костюм">
+                        <img src="./Двухбортный%20костюм.jpg" alt="Серый двубортный костюм ручного пошива" loading="lazy">
+                        <span class="portfolio-caption">Двубортный костюм</span>
+                    </button>
+                    <button class="portfolio-item" type="button" data-full="./Пиджак.jpg" data-caption="Классический пиджак">
+                        <img src="./Пиджак.jpg" alt="Светлый классический пиджак" loading="lazy">
+                        <span class="portfolio-caption">Пиджак</span>
+                    </button>
+                    <button class="portfolio-item" type="button" data-full="./Ручная%20Отделка.jpg" data-caption="Ручная отделка">
+                        <img src="./Ручная%20Отделка.jpg" alt="Ручная работа над деталями костюма" loading="lazy">
+                        <span class="portfolio-caption">Ручная отделка</span>
+                    </button>
+                    <button class="portfolio-item" type="button" data-full="./Смокинг.jpg" data-caption="Смокинг">
+                        <img src="./Смокинг.jpg" alt="Чёрный смокинг с атласными лацканами" loading="lazy">
+                        <span class="portfolio-caption">Смокинг</span>
+                    </button>
+                    <button class="portfolio-item" type="button" data-full="./брюки.jpg" data-caption="Брюки индивидуального пошива">
+                        <img src="./брюки.jpg" alt="Синие брюки индивидуального пошива" loading="lazy">
+                        <span class="portfolio-caption">Брюки</span>
+                    </button>
+                </div>
+            </section>
+        </details>
+
+        <details class="expand-panel">
+            <summary>График работы</summary>
+            <div class="schedule-rows">
+                <div class="schedule-row"><span>Будни</span><strong>09:00–19:00</strong></div>
+                <div class="schedule-row"><span>Суббота</span><strong>09:00–19:00</strong></div>
+                <div class="schedule-row"><span>Воскресенье</span><strong>09:00–16:00</strong></div>
+            </div>
+        </details>
+
+        <details class="expand-panel" id="shareCardPanel">
+            <summary>Поделиться визиткой</summary>
+            <div class="share-content">
+                <img src="./qr-abc-atelier.png" alt="QR-код сайта ABC Atelier">
+                <p class="share-caption">Отсканируйте QR-код или отправьте ссылку на визитку</p>
+                <div class="share-actions">
+                    <button class="share-action primary" id="shareCardButton" type="button">Поделиться</button>
+                    <button class="share-action" id="copyCardButton" type="button">Скопировать ссылку</button>
+                </div>
+                <span class="share-status" id="shareStatus" aria-live="polite"></span>
+            </div>
+        </details>
+
+        <p class="section-title">Быстрые действия</p>
+
+        <div class="grid">
+            <a href="tel:+998990025645" class="grid-item">
+                <span class="grid-label">📱</span>
+                <span class="grid-text">
+                    <span>Основной номер</span>
+                    <span class="grid-subtext">+998 99 002 56 45</span>
+                </span>
+                <span class="mobile-action">Позвонить&nbsp; →</span>
+            </a>
+            <a href="tel:+998983645645" class="grid-item">
+                <span class="grid-label">📱</span>
+                <span class="grid-text">
+                    <span>Дополнительный номер</span>
+                    <span class="grid-subtext">+998 98 364 56 45</span>
+                </span>
+                <span class="mobile-action">Позвонить&nbsp; →</span>
+            </a>
+        </div>
+        
+        <div class="links">
+            <a href="https://t.me/farhodabdulla" class="social-link tg" target="_blank" rel="noopener">
+                <span class="social-left">
+                    <span class="social-icon">✉️</span>
+                    <span class="social-text">
+                        <span class="social-title">Связаться со мной в Telegram</span>
+                        <span class="social-subtitle">@farhodabdulla</span>
+                    </span>
+                </span>
+                <span class="arrow">→</span>
+            </a>
+            <a href="https://wa.me/998990025645" class="social-link wa" target="_blank" rel="noopener">
+                <span class="social-left">
+                    <span class="social-icon">📞</span>
+                    <span class="social-text">
+                        <span class="social-title">Связаться со мной в WhatsApp</span>
+                        <span class="social-subtitle">+998990025645</span>
+                    </span>
+                </span>
+                <span class="arrow">→</span>
+            </a>
+            <a href="https://www.instagram.com/farhod_abdulla/" class="social-link insta" target="_blank" rel="noopener">
+                <span class="social-left">
+                    <span class="social-icon">📷</span>
+                    <span class="social-text">
+                        <span class="social-title">Instagram компании</span>
+                        <span class="social-subtitle">@farhod_abdulla</span>
+                    </span>
+                </span>
+                <span class="arrow">→</span>
+            </a>
+            <a href="https://www.facebook.com/bespoke.ateliers/" class="social-link facebook" target="_blank" rel="noopener">
+                <span class="social-left">
+                    <span class="social-icon">f</span>
+                    <span class="social-text">
+                        <span class="social-title">Facebook компании</span>
+                        <span class="social-subtitle">Bespoke Atelier</span>
+                    </span>
+                </span>
+                <span class="arrow">→</span>
+            </a>
+            <a href="https://abc-atelier.uz/" class="social-link site-link" target="_blank" rel="noopener">
+                <span class="social-left">
+                    <span class="social-icon site-logo">
+                        <img src="./logo-compact.png" alt="ABC Atelier">
+                    </span>
+                    <span class="social-text">
+                        <span class="social-title">Наш сайт</span>
+                        <span class="social-subtitle">abc-atelier.uz</span>
+                    </span>
+                </span>
+                <span class="arrow">→</span>
+            </a>
+        </div>
+
+        <details class="expand-panel achievements-panel">
+            <summary>Достижения</summary>
+            <div class="achievement-list">
+                <details class="achievement-item">
+                    <summary><span class="achievement-icon">🏅</span><span>Современные методы конструирования мужской одежды</span><span class="achievement-type">Сертификат</span></summary>
+                    <div class="achievement-preview"><iframe data-src="./certificate.pdf#toolbar=0&view=FitH" title="Предпросмотр сертификата 1" loading="lazy"></iframe><a class="achievement-open" href="./certificate.pdf" target="_blank" rel="noopener">Открыть оригинал в новой вкладке ↗</a></div>
+                </details>
+                <details class="achievement-item">
+                    <summary><span class="achievement-icon">🏅</span><span>Мастер-класс по конструированию мужской одежды</span><span class="achievement-type">Сертификат</span></summary>
+                    <div class="achievement-preview"><iframe data-src="./certificate_2.pdf#toolbar=0&view=FitH" title="Предпросмотр сертификата 2" loading="lazy"></iframe><a class="achievement-open" href="./certificate_2.pdf" target="_blank" rel="noopener">Открыть оригинал в новой вкладке ↗</a></div>
+                </details>
+                <details class="achievement-item">
+                    <summary><span class="achievement-icon">🎓</span><span>Проект «Дизайнеры Узбекистана во время карантина», 2020</span><span class="achievement-type">Диплом</span></summary>
+                    <div class="achievement-preview"><iframe data-src="./diploma_3.pdf#toolbar=0&view=FitH" title="Предпросмотр диплома 3" loading="lazy"></iframe><a class="achievement-open" href="./diploma_3.pdf" target="_blank" rel="noopener">Открыть оригинал в новой вкладке ↗</a></div>
+                </details>
+                <details class="achievement-item">
+                    <summary><span class="achievement-icon">🎓</span><span>Международная выставка «Made in Uzbekistan»</span><span class="achievement-type">Диплом</span></summary>
+                    <div class="achievement-preview"><iframe data-src="./diploma_4.pdf#toolbar=0&view=FitH" title="Предпросмотр диплома 4" loading="lazy"></iframe><a class="achievement-open" href="./diploma_4.pdf" target="_blank" rel="noopener">Открыть оригинал в новой вкладке ↗</a></div>
+                </details>
+                <details class="achievement-item">
+                    <summary><span class="achievement-icon">🎓</span><span>Конференция «Текстиль — 2002»</span><span class="achievement-type">Диплом</span></summary>
+                    <div class="achievement-preview"><iframe data-src="./diploma_6.pdf#toolbar=0&view=FitH" title="Предпросмотр диплома 6" loading="lazy"></iframe><a class="achievement-open" href="./diploma_6.pdf" target="_blank" rel="noopener">Открыть оригинал в новой вкладке ↗</a></div>
+                </details>
+                <details class="achievement-item">
+                    <summary><span class="achievement-icon">🎓</span><span>Global Textile Days, Ташкент, 2019</span><span class="achievement-type">Диплом</span></summary>
+                    <div class="achievement-preview"><iframe data-src="./diploma_7.pdf#toolbar=0&view=FitH" title="Предпросмотр диплома 7" loading="lazy"></iframe><a class="achievement-open" href="./diploma_7.pdf" target="_blank" rel="noopener">Открыть оригинал в новой вкладке ↗</a></div>
+                </details>
+            </div>
+        </details>
+    </div>
+</div>
+
+<dialog class="gallery-modal" id="galleryModal" aria-label="Просмотр фотографии работы">
+    <button class="gallery-close" type="button" aria-label="Закрыть фотографию">×</button>
+    <figure>
+        <img id="galleryModalImage" src="" alt="">
+        <figcaption id="galleryModalCaption"></figcaption>
+    </figure>
+</dialog>
+
+<script>
+    (function () {
+        document.querySelectorAll(".achievement-item").forEach((documentPanel) => {
+            documentPanel.addEventListener("toggle", () => {
+                if (!documentPanel.open) return;
+                const preview = documentPanel.querySelector("iframe[data-src]");
+                if (preview && !preview.hasAttribute("src")) preview.src = preview.dataset.src;
+            });
+        });
+
+        const galleryModal = document.getElementById("galleryModal");
+        const galleryImage = document.getElementById("galleryModalImage");
+        const galleryCaption = document.getElementById("galleryModalCaption");
+        const galleryClose = galleryModal?.querySelector(".gallery-close");
+
+        document.querySelectorAll(".portfolio-item").forEach((item) => {
+            item.addEventListener("click", () => {
+                galleryImage.src = item.dataset.full;
+                galleryImage.alt = item.querySelector("img").alt;
+                galleryCaption.textContent = item.dataset.caption;
+                galleryModal.showModal();
+            });
+        });
+        galleryClose?.addEventListener("click", () => galleryModal.close());
+        galleryModal?.addEventListener("click", (event) => {
+            if (event.target === galleryModal) galleryModal.close();
+        });
+
+        const shareButton = document.getElementById("shareCardButton");
+        const copyButton = document.getElementById("copyCardButton");
+        const shareStatus = document.getElementById("shareStatus");
+        const cardUrl = "https://abc-atelier.uz/";
+
+        if (shareButton && shareStatus) {
+            shareButton.addEventListener("click", async () => {
+                if (navigator.share) {
+                    try {
+                        await navigator.share({ title: "Визитка ABC Atelier", text: "Academy Bespoke Costumes — ателье индивидуального пошива в Ташкенте", url: cardUrl });
+                    } catch (error) {
+                        if (error.name !== "AbortError") shareStatus.textContent = "Не удалось открыть меню отправки.";
+                    }
+                } else {
+                    shareStatus.textContent = "На этом устройстве используйте «Скопировать ссылку».";
+                }
+            });
+        }
+        if (copyButton && shareStatus) {
+            copyButton.addEventListener("click", async () => {
+                try {
+                    await navigator.clipboard.writeText(cardUrl);
+                    shareStatus.textContent = "Ссылка скопирована.";
+                } catch {
+                    shareStatus.textContent = cardUrl;
+                }
+            });
+        }
+
+        const saveBtn = document.getElementById("saveContactBtn");
+        const contactHint = document.getElementById("contactHint");
+        if (!saveBtn || !contactHint) return;
+
+        const ua = navigator.userAgent || "";
+        const isAndroid = /Android/i.test(ua);
+        const isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+        if (isAndroid) {
+            saveBtn.textContent = "⬇️ Сохранить контакт (.vcf)";
+            contactHint.textContent = "Android: Нажми кнопку -> открой файл -> выбери Контакты -> Импорт.";
+        } else if (isIOS) {
+            saveBtn.textContent = "💾 Сохранить в контакты";
+            contactHint.textContent = "iPhone: после нажатия откроется карточка контакта, выбери «Создать новый контакт».";
+        } else {
+            contactHint.textContent = "Если контакт не открылся сразу, скачай .vcf и открой его через приложение Контакты.";
+        }
+    })();
+</script>
+
+</body>
+</html>
